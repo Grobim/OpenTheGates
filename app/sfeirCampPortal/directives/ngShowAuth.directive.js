@@ -1,3 +1,5 @@
+(function() {
+  'use strict';
 /**
  * @ngdoc function
  * @name sfeirCampPortalApp.directive:ngShowAuth
@@ -6,13 +8,15 @@
  * A directive that shows elements only when user is logged in. It also waits for Auth
  * to be initialized so there is no initial flashing of incorrect state.
  */
-angular.module('sfeirCampPortalApp')
-  .directive('ngShowAuth', ['Auth', '$timeout', function (Auth, $timeout) {
-    'use strict';
+  angular.module('sfeirCampPortalApp.directives')
+    .directive('ngShowAuth', ['Auth', '$timeout', ngShowAuthDirective])
+    ;
+
+    function ngShowAuthDirective(Auth, $timeout) {
 
     return {
-      restrict: 'A',
-      link: function(scope, el) {
+      restrict : 'A',
+      link     : function(scope, el) {
         el.addClass('ng-cloak'); // hide until we process it
 
         function update() {
@@ -27,4 +31,5 @@ angular.module('sfeirCampPortalApp')
         update();
       }
     };
-  }]);
+  }
+})();

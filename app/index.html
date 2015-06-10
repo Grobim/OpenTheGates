@@ -12,7 +12,7 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="sfeirCampPortal/styles/main.css">
     <!-- endbuild -->
   </head>
   <body ng-app="sfeirCampPortalApp">
@@ -21,65 +21,46 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="header" ng-cloak="">
-      <div class="navbar navbar-default" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
-
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-
-            <a class="navbar-brand" href="#/">sfeirCampPortal</a>
-          </div>
-
-          <div class="collapse navbar-collapse" id="js-navbar-collapse">
-
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">Home</a></li>
-              <!-- //angularfire -->
-
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-    <div ng-include="'views/chat.html'" ng-controller="ChatCtrl"></div>
-    </div>
-
-    <div class="footer">
-      <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team and Firebase</p>
-      </div>
-    </div>
+    <div ui-view ng-cloak=""></div>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/firebase/firebase.js"></script>
     <script src="bower_components/angularfire/dist/angularfire.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/angularfire/config.js"></script>
-        <script src="scripts/angularfire/firebase.ref.js"></script>
-        <script src="scripts\controllers\chat.js"></script>
-        <script src="scripts\filters\reverse.js"></script>
-        <script src="scripts/angularfire/auth.js"></script>
-        <script src="scripts\controllers\login.js"></script>
-        <script src="scripts\controllers\account.js"></script>
-        <script src="scripts/directives/ngShowAuth.js"></script>
-        <script src="scripts/directives/ngHideAuth.js"></script>
-        <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="sfeirCampPortal/app.js"></script>
+    <script src="sfeirCampPortal/app.routes.js"></script>
+
+    <script src="sfeirCampPortal/config/config.module.js"></script>
+    <script src="sfeirCampPortal/config/config.constants.js"></script>
+
+    <script src="sfeirCampPortal/filters/filters.module.js"></script>
+    <script src="sfeirCampPortal/filters/reverse.filter.js"></script>
+
+    <script src="sfeirCampPortal/directives/directives.module.js"></script>
+    <script src="sfeirCampPortal/directives/ngShowAuth.directive.js"></script>
+    <script src="sfeirCampPortal/directives/ngHideAuth.directive.js"></script>
+
+    <script src="sfeirCampPortal/firebase/firebase.module.js"></script>
+    <script src="sfeirCampPortal/firebase/firebase.factory.js"></script>
+    <script src="sfeirCampPortal/firebase/services/services.module.js"></script>
+
+    <script src="sfeirCampPortal/layout/layout.module.js"></script>
+    <script src="sfeirCampPortal/layout/layout.routes.js"></script>
+    <script src="sfeirCampPortal/layout/chat/chat.module.js"></script>
+    <script src="sfeirCampPortal/layout/chat/chat.controller.js"></script>
+    <script src="sfeirCampPortal/layout/chat/chat.routes.js"></script>
+
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts\controllers\login.js"></script>
+    <script src="scripts\controllers\account.js"></script>
+    <!-- endbuild -->
 </body>
 </html>

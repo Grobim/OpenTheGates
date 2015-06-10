@@ -1,15 +1,19 @@
-'use strict';
+(function() {
+  'use strict';
 /**
  * @ngdoc function
- * @name sfeirCampPortalApp.controller:ChatCtrl
+ * @name sfeirCampPortalApp.layout.chat.controller:ChatController
  * @description
- * # ChatCtrl
+ * # ChatController
  * A demo of using AngularFire to manage a synchronized list.
  */
-angular.module('sfeirCampPortalApp')
-  .controller('ChatCtrl', function ($scope, Ref, $firebaseArray, $timeout) {
+angular.module('sfeirCampPortalApp.layout.chat')
+  .controller('ChatController', ChatController)
+  ;
+
+  function ChatController($scope, SfeirCampRef, $firebaseArray, $timeout) {
     // synchronize a read-only, synchronized array of messages, limit to most recent 10
-    $scope.messages = $firebaseArray(Ref.child('messages').limitToLast(10));
+    $scope.messages = $firebaseArray(SfeirCampRef.child('messages').limitToLast(10));
 
     // display any errors
     $scope.messages.$loaded().catch(alert);
@@ -30,4 +34,5 @@ angular.module('sfeirCampPortalApp')
         $scope.err = null;
       }, 5000);
     }
-  });
+  }
+})();
