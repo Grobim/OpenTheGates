@@ -16,7 +16,9 @@
       <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
         <ul class="nav navbar-nav">
-          <li ng-repeat="(stateName, state) in layoutCtrl.headerStates" ng-class="{active : layoutCtrl.isCurrentState(stateName)}">
+          <li ng-repeat="(stateName, state) in layoutCtrl.headerStates"
+              ng-class="{active : layoutCtrl.isCurrentState(stateName)}"
+              ng-if="layoutCtrl.userHasAuthRights(state)">
             <a href="" ng-click="layoutCtrl.goToState(stateName)">{{state.label}}</a>
           </li>
         </ul>
