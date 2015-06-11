@@ -2,7 +2,9 @@
   'use strict';
 
   angular.module('sfeirCampPortalApp.layout.chat', [
-    'ui.router'
+    'ui.router',
+
+    'sfeirCampPortalApp.filters'
   ]);
 
 })();

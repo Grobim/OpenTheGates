@@ -19,7 +19,10 @@
           <li ng-repeat="(stateName, state) in layoutCtrl.headerStates"
               ng-class="{active : layoutCtrl.isCurrentState(stateName)}"
               ng-if="layoutCtrl.userHasAuthRights(state)">
-            <a href="" ng-click="layoutCtrl.goToState(stateName)">{{state.label}}</a>
+            <a href="" ng-click="layoutCtrl.goToState(stateName)">
+              {{state.label}}
+              <span ng-if="state.args" class="bold">({{state.args}})</span>
+            </a>
           </li>
         </ul>
       </div>

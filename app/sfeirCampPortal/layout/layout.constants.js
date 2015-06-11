@@ -3,6 +3,10 @@
 
   angular.module('sfeirCampPortalApp.layout')
     .constant('headerStates', {
+      'sfeirCampPortal.play'  : {
+        label : 'Play',
+        auth  : true
+      },
       'sfeirCampPortal.scores'  : {
         label : 'Scores'
       },
@@ -19,6 +23,6 @@
         auth  : true
       }
     })
-    ;
+  ;
 
 })();

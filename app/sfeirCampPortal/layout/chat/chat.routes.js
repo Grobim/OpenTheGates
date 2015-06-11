@@ -6,9 +6,10 @@
 
   function chatRoutes($stateProvider) {
     $stateProvider.state('sfeirCampPortal.chat', {
-      url         : '/chat',
-      templateUrl : 'sfeirCampPortal/layout/chat/chat.tpl.html',
-      controller  : 'ChatController'
+      url          : '/chat',
+      templateUrl  : 'sfeirCampPortal/layout/chat/chat.tpl.html',
+      controller   : 'ChatController',
+      controllerAs : 'chatCtrl'
     });
   }
 })();

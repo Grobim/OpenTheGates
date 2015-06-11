@@ -8,30 +8,35 @@
  * A demo of using AngularFire to manage a synchronized list.
  */
 angular.module('sfeirCampPortalApp.layout.chat')
-  .controller('ChatController', ChatController)
-  ;
+  .controller('ChatController', ['$scope', '$state', '$firebaseArray', '$timeout', 'ChatRef', ChatController])
+;
 
-  function ChatController($scope, SfeirCampRef, $firebaseArray, $timeout) {
-    // synchronize a read-only, synchronized array of messages, limit to most recent 10
-    $scope.messages = $firebaseArray(SfeirCampRef.child('messages').limitToLast(10));
+  function ChatController($scope, $state, $firebaseArray, $timeout, ChatRef) {
+    var _this = this;
+    
+    _this.addMessage = addMessage;
 
-    // display any errors
-    $scope.messages.$loaded().catch(alert);
+    _this.messages = $firebaseArray(ChatRef.$ref().child('messages').limitToLast(15));
 
-    // provide a method for adding a message
-    $scope.addMessage = function(newMessage) {
-      if( newMessage ) {
-        // push a message to the end of the array
-        $scope.messages.$add({text: newMessage})
-          // display any errors
-          .catch(alert);
+    $scope.layoutCtrl.resetMessages();
+
+    _this.messages.$loaded().catch(_alert);
+
+    function addMessage() {
+      if(_this.newMessage) {
+
+        _this.messages.$add({
+          text : _this.newMessage
+        }).catch(_alert);
+
+        _this.newMessage = null;
       }
-    };
+    }
 
-    function alert(msg) {
-      $scope.err = msg;
+    function _alert(msg) {
+      _this.err = msg;
       $timeout(function() {
-        $scope.err = null;
+        _this.err = null;
       }, 5000);
     }
   }

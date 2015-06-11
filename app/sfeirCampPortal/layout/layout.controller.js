@@ -2,19 +2,33 @@
   'use strict';
 
   angular.module('sfeirCampPortalApp.layout')
-    .controller('LayoutController', ['$state', 'headerStates', 'Auth', LayoutController])
+    .controller('LayoutController', ['$state', '$firebaseArray', '$scope', 'headerStates', 'Auth', 'ChatRef', LayoutController])
     ;
 
-  function LayoutController($state, headerStates, Auth) {
+  function LayoutController($state, $firebaseArray, $scope, headerStates, Auth, ChatRef) {
     var _this = this;
 
     _this.goToState = goToState;
     _this.isCurrentState = isCurrentState;
     _this.userHasAuthRights = userHasAuthRights;
+    _this.newMessage = newMessage;
+    _this.resetMessages = resetMessages;
 
     (function init() {
 
       _this.headerStates = _.cloneDeep(headerStates);
+
+      var messages = $firebaseArray(ChatRef.$ref().child('messages'));
+
+      messages.$loaded(function() {
+
+        messages.$watch(function (event) {
+          if (event.event === 'child_added' && !$state.includes('sfeirCampPortal.chat')) {
+            $scope.layoutCtrl.newMessage();
+          }
+        });
+
+      });
 
     })();
 
@@ -38,6 +52,16 @@
         }
       }
       return true;
+    }
+
+    function newMessage(incr) {
+      var increment = incr || 1,
+          current = _this.headerStates['sfeirCampPortal.chat'].args || 0;
+      _this.headerStates['sfeirCampPortal.chat'].args = current + increment;
+    }
+
+    function resetMessages() {
+      delete _this.headerStates['sfeirCampPortal.chat'].args;
     }
 
   }
