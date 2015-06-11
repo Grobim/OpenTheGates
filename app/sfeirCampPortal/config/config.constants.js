@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('firebase.config')
+  angular.module('sfeirCampPortalApp.config')
     .constant('FBURL', 'https://sfeircamp.firebaseio.com')
     ;
 

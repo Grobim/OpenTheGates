@@ -8,8 +8,10 @@
   function layoutRoutes($stateProvider) {
 
     $stateProvider.state('sfeirCampPortal', {
-      url         : '/sfeirCampPortal',
-      templateUrl : 'sfeirCampPortal/layout/layout.tpl.html'
+      url          : '/sfeirCampPortal',
+      templateUrl  : 'sfeirCampPortal/layout/layout.tpl.html',
+      controller   : 'LayoutController',
+      controllerAs : 'layoutCtrl'
     });
 
   }

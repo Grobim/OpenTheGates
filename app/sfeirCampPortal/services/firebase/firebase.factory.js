@@ -1,8 +1,9 @@
 (function() {
   'use strict';
 
-  angular.module('firebase.ref')
+  angular.module('sfeirCampPortalApp.services.firebase')
     .factory('SfeirCampRef', ['$window', 'FBURL', SfeirCampRefFactory])
+    .factory('PlayerRef', ['$firebaseObject', 'SfeirCampRef', PlayerRefFactory])
     .factory('Auth', ['$firebaseAuth', 'SfeirCampRef', AuthFactory])
   ;
 
@@ -12,6 +13,12 @@
 
   function AuthFactory($firebaseAuth, SfeirCampRef) {
     return $firebaseAuth(SfeirCampRef);
+  }
+
+  function PlayerRefFactory($firebaseObject, SfeirCampRef) {
+    return function(playerId) {
+      return $firebaseObject(SfeirCampRef.child('users/' + playerId));
+    };
   }
 
 })();

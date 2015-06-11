@@ -6,7 +6,7 @@
 
   function sfeirCampPortalRoutes($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/sfeirCampPortal/chat');
+    $urlRouterProvider.otherwise('/sfeirCampPortal/scores');
 
   }
 })();

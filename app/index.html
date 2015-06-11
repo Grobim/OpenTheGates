@@ -28,6 +28,7 @@
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
     <script src="bower_components/firebase/firebase.js"></script>
     <script src="bower_components/angularfire/dist/angularfire.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
@@ -41,6 +42,11 @@
     <script src="sfeirCampPortal/config/config.module.js"></script>
     <script src="sfeirCampPortal/config/config.constants.js"></script>
 
+    <script src="sfeirCampPortal/services/services.module.js"></script>
+    <script src="sfeirCampPortal/services/firebase/firebase.module.js"></script>
+    <script src="sfeirCampPortal/services/firebase/firebase.factory.js"></script>
+    <script src="sfeirCampPortal/services/firebase/player.service.js"></script>
+
     <script src="sfeirCampPortal/filters/filters.module.js"></script>
     <script src="sfeirCampPortal/filters/reverse.filter.js"></script>
 
@@ -48,19 +54,31 @@
     <script src="sfeirCampPortal/directives/ngShowAuth.directive.js"></script>
     <script src="sfeirCampPortal/directives/ngHideAuth.directive.js"></script>
 
-    <script src="sfeirCampPortal/firebase/firebase.module.js"></script>
-    <script src="sfeirCampPortal/firebase/firebase.factory.js"></script>
-    <script src="sfeirCampPortal/firebase/services/services.module.js"></script>
 
     <script src="sfeirCampPortal/layout/layout.module.js"></script>
     <script src="sfeirCampPortal/layout/layout.routes.js"></script>
+    <script src="sfeirCampPortal/layout/layout.controller.js"></script>
+    <script src="sfeirCampPortal/layout/layout.constants.js"></script>
+
+    <script src="sfeirCampPortal/layout/scores/scores.module.js"></script>
+    <script src="sfeirCampPortal/layout/scores/scores.routes.js"></script>
+    <script src="sfeirCampPortal/layout/scores/scores.controller.js"></script>
+
     <script src="sfeirCampPortal/layout/chat/chat.module.js"></script>
     <script src="sfeirCampPortal/layout/chat/chat.controller.js"></script>
     <script src="sfeirCampPortal/layout/chat/chat.routes.js"></script>
 
+    <script src="sfeirCampPortal/layout/login/login.module.js"></script>
+    <script src="sfeirCampPortal/layout/login/login.controller.js"></script>
+    <script src="sfeirCampPortal/layout/login/login.routes.js"></script>
+
+    <script src="sfeirCampPortal/layout/account/account.module.js"></script>
+    <script src="sfeirCampPortal/layout/account/account.controller.js"></script>
+    <script src="sfeirCampPortal/layout/account/account.routes.js"></script>
+
+
     <script src="scripts/controllers/main.js"></script>
-    <script src="scripts\controllers\login.js"></script>
-    <script src="scripts\controllers\account.js"></script>
+    <script src="scripts/controllers/account.js"></script>
     <!-- endbuild -->
 </body>
 </html>

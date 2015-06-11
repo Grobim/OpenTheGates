@@ -13,10 +13,8 @@
     'ui.router',
     'firebase',
 
-    'firebase.ref',
-    'firebase.services',
-
     'sfeirCampPortalApp.filters',
+    'sfeirCampPortalApp.services',
     'sfeirCampPortalApp.directives',
     'sfeirCampPortalApp.layout'
     ]);
